@@ -93,7 +93,7 @@ const Header = (props) => {
   ];
 
   return (
-    <div className="bg-gray-50 font-sans">
+    <div className="bg-gray-50 font-sans z-10">
       <div className="bg-white">
         <header
           className={`absolute inset-x-0 top-0 z-50 sticky ${
