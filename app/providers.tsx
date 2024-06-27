@@ -15,8 +15,15 @@ const colors = {
     500: "#1f2937",
   },
 };
+const styles = {
+  global: {
+    "*": {
+      borderColor: "#e4e4e4",
+    },
+  },
+};
 
-const theme = extendTheme({ colors }, baseTheme);
+const theme = extendTheme({ colors, styles }, baseTheme);
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (

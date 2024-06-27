@@ -19,6 +19,7 @@ import {
   MenuDivider,
   MenuGroup,
   Portal,
+  useDisclosure,
 } from "@chakra-ui/react";
 import {
   Sidebar,
@@ -34,16 +35,25 @@ import {
   FiSettings,
   FiHelpCircle,
   FiRotateCcw,
+  FiChevronsLeft,
+  FiChevronsRight,
+  FiSmile,
+  FiDollarSign,
 } from "react-icons/fi";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
 import { createClient } from "@/utils/supabase/client";
 import { FaAngleDown } from "react-icons/fa";
+import logo from "../../public/logo.png";
 
 export default function Page() {
   const router = useRouter();
   const pathname = usePathname();
+
+  const { isOpen, onToggle } = useDisclosure({
+    defaultIsOpen: true,
+  });
 
   const handleNavigation = (href) => {
     router.push(href);
@@ -60,16 +70,35 @@ export default function Page() {
   };
 
   return (
-    <Sidebar toggleBreakpoint="sm">
-      <SidebarToggleButton />
-      <SidebarSection direction="row">
-        {/* <Image
-          src="https://saas-ui.dev/favicons/favicon-96x96.png"
-          width={28}
-          height={28}
-          alt="Logo"
-        /> */}
-        <Menu>
+    <Sidebar
+      toggleBreakpoint={false}
+      variant={isOpen ? "default" : "compact"}
+      transition="width"
+      transitionDuration="normal"
+      width={isOpen ? "280px" : "14"}
+      minWidth="auto"
+    >
+      {/* <SidebarToggleButton /> */}
+      <SidebarSection direction={isOpen ? "row" : "column"}>
+        <Image
+          src={logo}
+          boxSize="6"
+          mb="1"
+          width={130}
+          height={130}
+          style={{ display: isOpen ? "block" : "none" }}
+          //display={isOpen ? "block" : "none"}
+        />
+        <Spacer />
+        <IconButton
+          onClick={onToggle}
+          variant="ghost"
+          size="sm"
+          icon={isOpen ? <FiChevronsLeft /> : <FiChevronsRight />}
+          aria-label="Toggle Sidebar"
+        />
+      </SidebarSection>
+      {/* <Menu>
           <MenuButton as={Button} rightIcon={<FaAngleDown />}>
             Intronsoft
           </MenuButton>
@@ -83,7 +112,8 @@ export default function Page() {
               <MenuItem>Attend a Workshop</MenuItem>
             </MenuGroup>
           </MenuList>
-        </Menu>
+        </Menu> */}
+      <SidebarSection>
         <Menu>
           {/* {props.compact ? (
         <MenuButton as={IconButton} {...buttonProps} icon={activeLogo} />
@@ -126,24 +156,13 @@ export default function Page() {
           </Portal>
         </Menu>
         <Spacer />
-        <Menu>
-          <MenuButton
-            as={IconButton}
-            icon={
-              <PersonaAvatar
-                presence="online"
-                size="xs"
-                src="/showcase-avatar.jpg"
-              />
-            }
-            variant="ghost"
-          />
-          <MenuList>
-            <MenuItem onClick={handleSignOut}>Sign out</MenuItem>
-          </MenuList>
-        </Menu>
       </SidebarSection>
-      <SidebarSection flex="1" overflowY="auto" aria-label="Main">
+      <SidebarSection
+        flex="1"
+        overflowY="auto"
+        overflowX="hidden"
+        aria-label="Main"
+      >
         <NavGroup>
           <NavItem
             onClick={() => handleNavigation("/dashboard")}
@@ -176,10 +195,16 @@ export default function Page() {
         </NavGroup>
 
         <NavGroup title="Teams" isCollapsible>
-          <NavItem onClick={() => handleNavigation("/dashboard/sales")}>
+          <NavItem
+            icon={<FiDollarSign />}
+            onClick={() => handleNavigation("/dashboard/sales")}
+          >
             Sales
           </NavItem>
-          <NavItem onClick={() => handleNavigation("/dashboard/support")}>
+          <NavItem
+            icon={<FiSmile />}
+            onClick={() => handleNavigation("/dashboard/support")}
+          >
             Support
           </NavItem>
         </NavGroup>
@@ -203,13 +228,29 @@ export default function Page() {
           </NavItem>
         </NavGroup>
       </SidebarSection>
-      <SidebarSection>
-        <NavItem
+      <SidebarSection direction="row">
+        {/* <NavItem
           onClick={() => handleNavigation("/dashboard/documentation")}
           icon={<FiHelpCircle />}
         >
           Documentation
-        </NavItem>
+        </NavItem> */}
+        <Menu>
+          <MenuButton
+            as={IconButton}
+            icon={
+              <PersonaAvatar
+                presence="online"
+                size="xs"
+                src="/showcase-avatar.jpg"
+              />
+            }
+            variant="ghost"
+          />
+          <MenuList>
+            <MenuItem onClick={handleSignOut}>Sign out</MenuItem>
+          </MenuList>
+        </Menu>
       </SidebarSection>
     </Sidebar>
   );

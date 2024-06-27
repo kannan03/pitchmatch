@@ -207,7 +207,7 @@ const Header = (props) => {
               }}
             />
           </div>
-          <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+          <div className="mx-auto max-w-2xl">
             {/* <div className="hidden sm:mb-8 sm:flex sm:justify-center">
               <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
                 Announcing our next round of funding.{" "}
@@ -292,16 +292,16 @@ const Header = (props) => {
             </div>
           </div>
         </div>
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center p-5">
           <section
-            className="w-full py-12 md:py-24 lg:py-32 bg-white dark:bg-gray-800"
+            className="w-full bg-white dark:bg-white bg-gray-800"
             id="features"
           >
             <div className="container px-4 md:px-6">
               <div className="grid items-center gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
                 <div className="flex flex-col justify-center space-y-4">
                   <div className="space-y-2">
-                    <div className="inline-block rounded-lg bg-gray-100 py-1 text-sm dark:bg-gray-800">
+                    <div className="inline-block rounded-lg dark:bg-white py-1 text-sm bg-gray-800">
                       Cold Email Generation
                     </div>
                     <h2 className="text-2xl font-bold tracking-tighter sm:text-5xl">
@@ -355,7 +355,7 @@ const Header = (props) => {
                   </div>
                 </div>
                 <div
-                  className="relative flex w-full align-center max-w-[800px] items-center justify-center overflow-hidden rounded-lg  p-10"
+                  className="relative flex w-full align-center max-w-[800px] items-center justify-center overflow-hidden rounded-lg"
                   ref={containerRef}
                 >
                   <div className="flex h-full w-full flex-row items-stretch justify-between ">
@@ -415,12 +415,13 @@ const Header = (props) => {
             </div>
           </section>
         </div>
+        <br />
 
         <section
-          className="w-full py-12 md:py-24 lg:py-32  dark:bg-gray-800"
+          className="w-full dark:bg-white bg-gray-800 pt-14"
           id="pricing"
         >
-          <div className="container px-4 md:px-6">
+          <div className="container px-6 md:px-4">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
@@ -433,7 +434,7 @@ const Header = (props) => {
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 sm:grid-cols-2 md:grid-cols-3 lg:gap-12">
-              <Card className="flex flex-col justify-between rounded border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-950">
+              <Card className="flex flex-col justify-between rounded border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-white bg-gray-950">
                 <div className="space-y-4">
                   <div className="space-y-2">
                     <h3 className="text-2xl font-bold">Starter</h3>
@@ -467,13 +468,13 @@ const Header = (props) => {
                   </ul>
                 </div>
                 <Link
-                  className="mt-4 inline-flex h-10 w-full items-center justify-center rounded bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
+                  className="mt-4 inline-flex h-10 w-full items-center border border-black justify-center rounded dark:bg-gray-900 px-8 text-sm font-medium dark:text-gray-50 shadow transition-colors hover:bg-gray-900/90 hover:text-black focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 bg-gray-50 text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
                   href="#"
                 >
                   Get Started
                 </Link>
               </Card>
-              <Card className="flex flex-col justify-between rounded border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-950">
+              <Card className="flex flex-col justify-between rounded border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-white bg-gray-950">
                 <div className="space-y-4">
                   <div className="space-y-2">
                     <h3 className="text-2xl font-bold">Pro</h3>
@@ -511,13 +512,13 @@ const Header = (props) => {
                   </ul>
                 </div>
                 <Link
-                  className="mt-4 inline-flex h-10 w-full items-center justify-center rounded bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
+                  className="mt-4 inline-flex h-10 w-full items-center border border-black justify-center rounded dark:bg-gray-900 px-8 text-sm font-medium dark:text-gray-50 shadow transition-colors hover:bg-gray-900/90 hover:text-black focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 bg-gray-50 text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
                   href="#"
                 >
                   Get Started
                 </Link>
               </Card>
-              <Card className="flex flex-col justify-between rounded border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-950">
+              <Card className="flex flex-col justify-between rounded border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-white bg-gray-950">
                 <div className="space-y-4">
                   <div className="space-y-2">
                     <h3 className="text-2xl font-bold">Enterprise</h3>
@@ -559,7 +560,7 @@ const Header = (props) => {
                   </ul>
                 </div>
                 <Link
-                  className="mt-4 inline-flex h-10 w-full items-center justify-center rounded bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
+                  className="mt-4 inline-flex h-10 w-full items-center border border-black justify-center rounded dark:bg-gray-900 px-8 text-sm font-medium dark:text-gray-50 shadow transition-colors hover:bg-gray-900/90 hover:text-black focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 bg-gray-50 text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
                   href="#"
                 >
                   Get Started
@@ -603,7 +604,7 @@ const Header = (props) => {
             </figure>
           </div>
         </section> */}
-        <section className="w-full py-12 md:py-24 lg:py-24 bg-gray-100 dark:bg-gray-900">
+        <section className="w-full py-12 md:py-24 lg:py-24 bg-gray-100 dark:bg-white bg-gray-900">
           <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6">
             <div className="space-y-3">
               <h2 className="text-3xl font-bold font-sans tracking-tighter md:text-4xl/tight">
@@ -617,7 +618,7 @@ const Header = (props) => {
             <div className="mx-auto w-full max-w-sm space-y-2">
               <form className="flex space-x-2">
                 <Input
-                  className="max-w-lg flex-1 rounded border border-gray-200 bg-white p-2 shadow-sm dark:border-gray-800 dark:bg-gray-950"
+                  className="max-w-lg flex-1 rounded border border-gray-200 dark:bg-white p-2 shadow-sm dark:border-gray-800 bg-gray-950"
                   placeholder="Enter your email"
                   type="email"
                 />
