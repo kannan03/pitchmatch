@@ -93,6 +93,8 @@ const getPageTitle = (pathname) => {
       return "Settings";
     case "/dashboard/personalize-mail":
       return "Personalize Mail";
+    case "/dashboard/personalize-list":
+      return "Personalize List";
     default:
       return "Page";
   }
