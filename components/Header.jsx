@@ -297,7 +297,7 @@ const Header = (props) => {
             className="w-full bg-white dark:bg-white bg-gray-800"
             id="features"
           >
-            <div className="container px-4 md:px-6">
+            <div className="container mx-auto px-4 md:px-6">
               <div className="grid items-center gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
                 <div className="flex flex-col justify-center space-y-4">
                   <div className="space-y-2">
@@ -421,7 +421,7 @@ const Header = (props) => {
           className="w-full dark:bg-white bg-gray-800 pt-14"
           id="pricing"
         >
-          <div className="container px-6 md:px-4">
+          <div className="container mx-auto px-6 md:px-4">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
@@ -605,7 +605,7 @@ const Header = (props) => {
           </div>
         </section> */}
         <section className="w-full py-12 md:py-24 lg:py-24 bg-gray-100 dark:bg-white bg-gray-900">
-          <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6">
+          <div className="container mx-auto grid items-center justify-center gap-4 px-4 text-center md:px-6">
             <div className="space-y-3">
               <h2 className="text-3xl font-bold font-sans tracking-tighter md:text-4xl/tight">
                 Ready to Boost Your Cold Email Outreach?

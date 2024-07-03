@@ -252,6 +252,20 @@ function PersonalizeList() {
     const urls = new Set();
     let hasDuplicates = false;
     let hasEmptyValues = false;
+    let hasInvalidUrls = false;
+
+    const isValidUrl = (url) => {
+      const urlPattern = new RegExp(
+        "^(https?:\\/\\/)?" +
+          "((([a-zA-Z\\d]([a-zA-Z\\d-]*[a-zA-Z\\d])*)\\.)+[a-zA-Z]{2,}|" +
+          "((\\d{1,3}\\.){3}\\d{1,3}))" +
+          "(\\:\\d+)?(\\/[-a-zA-Z\\d%_.~+]*)*" +
+          "(\\?[;&a-zA-Z\\d%_.~+=-]*)?" +
+          "(\\#[-a-zA-Z\\d_]*)?$",
+        "i"
+      );
+      return !!urlPattern.test(url);
+    };
 
     data.forEach((row, rowIndex) => {
       const name = row[leadNameIndex];
@@ -272,6 +286,12 @@ function PersonalizeList() {
       } else if (!url) {
         setError(`Lead website URL is empty in row ${rowIndex + 1}.`);
         hasEmptyValues = true;
+        return;
+      }
+
+      if (!isValidUrl(url)) {
+        setError(`Invalid lead website URL "${url}" in row ${rowIndex + 1}.`);
+        hasInvalidUrls = true;
         return;
       }
 
@@ -297,7 +317,7 @@ function PersonalizeList() {
       urls.add(url);
     });
 
-    if (hasEmptyValues || hasDuplicates /* || hasInvalidUrls */) {
+    if (hasEmptyValues || hasDuplicates || hasInvalidUrls) {
       return;
     }
   };

@@ -12,8 +12,10 @@ import {
   CardContent,
   CardFooter,
 } from "@/components/ui/card";
+import { useRouter } from "next/navigation";
 
 export default function Component() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     website: "",
     name: "",
@@ -35,6 +37,15 @@ export default function Component() {
       Best regards,
       [Your Name]
     `);
+  };
+
+  const handlePersonalizeList = (path) => {
+    if (path === "Personalize-List") {
+      router.push("/dashboard/personalize-list");
+    }
+    if (path === "Personalize-Mail") {
+      router.push("/dashboard/personalize-mail");
+    }
   };
 
   return (
@@ -61,7 +72,10 @@ export default function Component() {
                 <p className="text-muted-foreground">
                   Easily personalize emails for your entire contact list.
                 </p>
-                <Button className="mt-auto bg-gray-800 text-white hover:bg-gray-700 transition-colors duration-300">
+                <Button
+                  onClick={() => handlePersonalizeList("Personalize-List")}
+                  className="mt-auto bg-gray-800 text-white hover:bg-gray-700 transition-colors duration-300"
+                >
                   Get Started
                 </Button>
               </div>
@@ -77,7 +91,10 @@ export default function Component() {
                 <p className="text-muted-foreground">
                   Personalize emails for individual leads and customers.
                 </p>
-                <Button className="mt-auto bg-gray-800 text-white hover:bg-gray-700 transition-colors duration-300">
+                <Button
+                  onClick={() => handlePersonalizeList("Personalize-Mail")}
+                  className="mt-auto bg-gray-800 text-white hover:bg-gray-700 transition-colors duration-300"
+                >
                   Get Started
                 </Button>
               </div>
